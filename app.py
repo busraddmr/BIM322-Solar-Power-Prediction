@@ -1,11 +1,11 @@
-import pickle
+﻿import pickle
 import numpy as np
 import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="Solar Güç Tahmini",
-    page_icon="⚡",
+    page_title="Solar GÃ¼Ã§ Tahmini",
+    page_icon="âš¡",
     layout="centered",
 )
 
@@ -21,7 +21,7 @@ st.markdown("""
     min-height: 100vh;
 }
 
-/* Yıldız efekti */
+/* YÄ±ldÄ±z efekti */
 .stApp::before {
     content: '';
     position: fixed;
@@ -234,7 +234,7 @@ div.stButton > button:hover {
 div.stButton > button:hover::before { opacity: 1; }
 div.stButton > button:active { transform: translateY(0); }
 
-/* Sonuç kutuları */
+/* SonuÃ§ kutularÄ± */
 .result-card {
     border-radius: 20px;
     padding: 32px 28px;
@@ -274,7 +274,7 @@ div.stButton > button:active { transform: translateY(0); }
 .result-title-low  { color: #fbbf24; font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px; margin: 0 0 6px; }
 .result-desc { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin: 0; line-height: 1.5; }
 
-/* Olasılık */
+/* OlasÄ±lÄ±k */
 .prob-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -361,7 +361,7 @@ div.stButton > button:active { transform: translateY(0); }
     border-radius: 0 0 12px 12px !important;
 }
 
-/* Streamlit alert kutularını gizle */
+/* Streamlit alert kutularÄ±nÄ± gizle */
 .stAlert { display: none; }
 
 /* Footer */
@@ -384,7 +384,7 @@ div.stButton > button:active { transform: translateY(0); }
 .footer-pill strong { color: rgba(255,255,255,0.7); }
 .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
 
-/* Kolon boşlukları */
+/* Kolon boÅŸluklarÄ± */
 [data-testid="column"] { padding: 0 6px !important; }
 
 /* Scrollbar */
@@ -397,11 +397,11 @@ div.stButton > button:active { transform: translateY(0); }
 
 @st.cache_resource
 def load_artifacts():
-    with open("xgboost_model.pkl", "rb") as f:
+    with open("models/xgboost_model.pkl", "rb") as f:
         model = pickle.load(f)
-    with open("scaler.pkl", "rb") as f:
+    with open("models/scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
-    with open("selected_features.pkl", "rb") as f:
+    with open("models/selected_features.pkl", "rb") as f:
         features = pickle.load(f)
     return model, scaler, features
 
@@ -410,13 +410,13 @@ model, scaler, selected_features = load_artifacts()
 st.markdown("""
 <div class="hero-wrap">
   <div class="hero-inner">
-    <span class="sun-icon">☀️</span>
-    <h1 class="hero-title">Solar <span>Güç Üretim</span> Tahmini</h1>
+    <span class="sun-icon">â˜€ï¸</span>
+    <h1 class="hero-title">Solar <span>GÃ¼Ã§ Ãœretim</span> Tahmini</h1>
     <p class="hero-sub">
-      BIM 322 – Makine Öğrenmesi ve Uygulamaları<br>
+      BIM 322 â€“ Makine Ã–ÄŸrenmesi ve UygulamalarÄ±<br>
       Busra Demir &amp; Nazenin Tatar
     </p>
-    <span class="hero-badge">⚡ XGBoost · Accuracy 97.42%</span>
+    <span class="hero-badge">âš¡ XGBoost Â· Accuracy 97.42%</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -424,7 +424,7 @@ st.markdown("""
 
 st.markdown("""
 <div class="glass-card">
-  <div class="glass-card-title">🔆 Sensör Değerleri</div>
+  <div class="glass-card-title">ğŸ”† SensÃ¶r DeÄŸerleri</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -432,54 +432,54 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     irradiation = st.number_input(
-        "Irradiation (W/m²)",
+        "Irradiation (W/mÂ²)",
         min_value=0.0, max_value=1.5,
         value=0.5, step=0.01,
-        help="Güneş ışınımı yoğunluğu — tipik aralık: 0 – 1.22"
+        help="GÃ¼neÅŸ Ä±ÅŸÄ±nÄ±mÄ± yoÄŸunluÄŸu â€” tipik aralÄ±k: 0 â€“ 1.22"
     )
 
 with col2:
     module_temp = st.number_input(
-        "Modül Sıcaklığı (°C)",
+        "ModÃ¼l SÄ±caklÄ±ÄŸÄ± (Â°C)",
         min_value=0.0, max_value=80.0,
         value=35.0, step=0.5,
-        help="Panel yüzey sıcaklığı"
+        help="Panel yÃ¼zey sÄ±caklÄ±ÄŸÄ±"
     )
 
 with col3:
     ambient_temp = st.number_input(
-        "Ortam Sıcaklığı (°C)",
+        "Ortam SÄ±caklÄ±ÄŸÄ± (Â°C)",
         min_value=0.0, max_value=50.0,
         value=28.0, step=0.5,
-        help="Çevre hava sıcaklığı"
+        help="Ã‡evre hava sÄ±caklÄ±ÄŸÄ±"
     )
 
 
 st.markdown(f"""
 <div class="stat-row">
   <div class="stat-chip">
-    <span class="icon">☀️</span>
+    <span class="icon">â˜€ï¸</span>
     <div class="val">{irradiation:.2f}</div>
-    <div class="unit">W/m²</div>
-    <div class="lbl">Işınım</div>
+    <div class="unit">W/mÂ²</div>
+    <div class="lbl">IÅŸÄ±nÄ±m</div>
   </div>
   <div class="stat-chip">
-    <span class="icon">🌡️</span>
+    <span class="icon">ğŸŒ¡ï¸</span>
     <div class="val">{module_temp:.1f}</div>
-    <div class="unit">°C</div>
-    <div class="lbl">Modül Sıcaklığı</div>
+    <div class="unit">Â°C</div>
+    <div class="lbl">ModÃ¼l SÄ±caklÄ±ÄŸÄ±</div>
   </div>
   <div class="stat-chip">
-    <span class="icon">🌤️</span>
+    <span class="icon">ğŸŒ¤ï¸</span>
     <div class="val">{ambient_temp:.1f}</div>
-    <div class="unit">°C</div>
-    <div class="lbl">Ortam Sıcaklığı</div>
+    <div class="unit">Â°C</div>
+    <div class="lbl">Ortam SÄ±caklÄ±ÄŸÄ±</div>
   </div>
 </div>
 """, unsafe_allow_html=True)
 
 
-predict_clicked = st.button("⚡  Tahmini Hesapla", use_container_width=True)
+predict_clicked = st.button("âš¡  Tahmini Hesapla", use_container_width=True)
 
 
 if predict_clicked:
@@ -503,43 +503,43 @@ if predict_clicked:
     p_low      = pred_proba[0]
 
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown('<div class="glass-card-title">📊 Tahmin Sonucu</div>', unsafe_allow_html=True)
+    st.markdown('<div class="glass-card-title">ğŸ“Š Tahmin Sonucu</div>', unsafe_allow_html=True)
 
-    # Sonuç kutusu
+    # SonuÃ§ kutusu
     if pred == 1:
         st.markdown(f"""
         <div class="result-card result-high">
-          <span class="result-icon">✅</span>
-          <div class="result-title-high">YÜKSEK GÜÇ ÜRETİMİ</div>
-          <p class="result-desc">Santral verimli çalışıyor — üretim eşiğinin üzerinde.</p>
+          <span class="result-icon">âœ…</span>
+          <div class="result-title-high">YÃœKSEK GÃœÃ‡ ÃœRETÄ°MÄ°</div>
+          <p class="result-desc">Santral verimli Ã§alÄ±ÅŸÄ±yor â€” Ã¼retim eÅŸiÄŸinin Ã¼zerinde.</p>
         </div>""", unsafe_allow_html=True)
     else:
         st.markdown(f"""
         <div class="result-card result-low">
-          <span class="result-icon">⚠️</span>
-          <div class="result-title-low">DÜŞÜK GÜÇ ÜRETİMİ</div>
-          <p class="result-desc">Üretim eşiğinin altında — koşullar yetersiz.</p>
+          <span class="result-icon">âš ï¸</span>
+          <div class="result-title-low">DÃœÅÃœK GÃœÃ‡ ÃœRETÄ°MÄ°</div>
+          <p class="result-desc">Ãœretim eÅŸiÄŸinin altÄ±nda â€” koÅŸullar yetersiz.</p>
         </div>""", unsafe_allow_html=True)
 
-    # Olasılık kutuları
+    # OlasÄ±lÄ±k kutularÄ±
     st.markdown(f"""
     <div class="prob-grid">
       <div class="prob-box prob-box-high">
         <div class="prob-val-high">{p_high*100:.1f}%</div>
-        <div class="prob-lbl">Yüksek Güç Olasılığı</div>
+        <div class="prob-lbl">YÃ¼ksek GÃ¼Ã§ OlasÄ±lÄ±ÄŸÄ±</div>
       </div>
       <div class="prob-box prob-box-low">
         <div class="prob-val-low">{p_low*100:.1f}%</div>
-        <div class="prob-lbl">Düşük Güç Olasılığı</div>
+        <div class="prob-lbl">DÃ¼ÅŸÃ¼k GÃ¼Ã§ OlasÄ±lÄ±ÄŸÄ±</div>
       </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Güven çubukları
+    # GÃ¼ven Ã§ubuklarÄ±
     st.markdown(f"""
     <div class="bar-wrap">
       <div class="bar-header">
-        <span class="bar-title">Yüksek Güç Güveni</span>
+        <span class="bar-title">YÃ¼ksek GÃ¼Ã§ GÃ¼veni</span>
         <span class="bar-pct">{p_high*100:.1f}%</span>
       </div>
       <div class="bar-track">
@@ -548,7 +548,7 @@ if predict_clicked:
     </div>
     <div class="bar-wrap" style="margin-top:12px">
       <div class="bar-header">
-        <span class="bar-title">Düşük Güç Güveni</span>
+        <span class="bar-title">DÃ¼ÅŸÃ¼k GÃ¼Ã§ GÃ¼veni</span>
         <span class="bar-pct" style="color:#fbbf24">{p_low*100:.1f}%</span>
       </div>
       <div class="bar-track">
@@ -559,11 +559,11 @@ if predict_clicked:
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-    with st.expander("📋 Giriş Değerleri Özeti"):
+    with st.expander("ğŸ“‹ GiriÅŸ DeÄŸerleri Ã–zeti"):
         df_show = pd.DataFrame({
-            "Özellik": selected_features,
-            "Ham Değer": [irradiation, module_temp, ambient_temp],
-            "Ölçekli Değer": X_input[0].round(4),
+            "Ã–zellik": selected_features,
+            "Ham DeÄŸer": [irradiation, module_temp, ambient_temp],
+            "Ã–lÃ§ekli DeÄŸer": X_input[0].round(4),
         })
         st.dataframe(df_show, use_container_width=True, hide_index=True)
 
@@ -573,9 +573,10 @@ st.markdown("""
     <div class="footer-pill">Model: <strong>XGBoost</strong></div>
     <div class="footer-pill">Accuracy: <strong>97.42%</strong></div>
     <div class="footer-pill">F1 Score: <strong>97.36%</strong></div>
-    <div class="footer-pill">Eşik: <strong>544.71 W</strong></div>
+    <div class="footer-pill">EÅŸik: <strong>544.71 W</strong></div>
     <div class="footer-pill">Veri: <strong>Kaggle Solar Dataset</strong></div>
   </div>
-  <div class="footer-copy">BIM 322 – Busra Demir &amp; Nazenin Tatar · 2026</div>
+  <div class="footer-copy">BIM 322 â€“ Busra Demir &amp; Nazenin Tatar Â· 2026</div>
 </div>
 """, unsafe_allow_html=True)
+

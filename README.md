@@ -54,13 +54,18 @@ Uygulama: http://localhost:8501
 
 ```
 BIM322_SolarGucTahmini/
+├── data/
+│   ├── Plant_1_Generation_Data.csv
+│   ├── Plant_1_Weather_Sensor_Data.csv
+│   ├── Plant_2_Generation_Data.csv
+│   └── Plant_2_Weather_Sensor_Data.csv
+├── models/
+│   ├── xgboost_model.pkl
+│   ├── scaler.pkl
+│   └── selected_features.pkl
 ├── BusraDemir_NazeninTatar_BIM322_SolarGucTahmini.ipynb
+├── BusraDemir_NazeninTatar_BIM322_Sunum.pptx
 ├── app.py
-├── xgboost_model.pkl
-├── scaler.pkl
-├── selected_features.pkl
-├── Plant_1_Generation_Data.csv
-├── Plant_1_Weather_Sensor_Data.csv
-├── Plant_2_Generation_Data.csv
-└── Plant_2_Weather_Sensor_Data.csv
+├── requirements.txt
+└── README.md
 ```
