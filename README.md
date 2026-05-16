@@ -63,7 +63,7 @@ BIM322_SolarGucTahmini/
 │   ├── xgboost_model.pkl
 │   ├── scaler.pkl
 │   └── selected_features.pkl
-├── BusraDemir_NazeninTatar_BIM322_SolarGucTahmini.ipynb
+├── solar_guc_tahmini.ipynb
 ├── BusraDemir_NazeninTatar_BIM322_Sunum.pptx
 ├── app.py
 ├── requirements.txt
