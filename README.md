@@ -1,6 +1,5 @@
 # BIM 322 - Solar Güç Üretim Tahmini
 
-Bu proje BIM 322 Makine Öğrenmesi ve Uygulamaları dersi kapsamında geliştirilmiştir.
 
 **Öğrenciler:** Büşra Demir & Nazenin Tatar
 
