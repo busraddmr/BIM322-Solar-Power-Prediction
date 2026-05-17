@@ -92,9 +92,11 @@ input[type=number] {
 label { color: rgba(255,255,255,0.85) !important; font-weight: 600 !important; }
 [data-testid="stWidgetLabel"] p { color: rgba(255,255,255,0.85) !important; }
 
-/* Expander yazi rengi */
-.streamlit-expanderHeader { color: white !important; }
-.streamlit-expanderHeader p { color: white !important; font-weight: 600; }
+/* Expander arkaplan ve yazi rengi */
+[data-testid="stExpander"] { background-color: #ffffff !important; border-radius: 10px !important; }
+.streamlit-expanderHeader { background-color: #ffffff !important; color: #000000 !important; border-radius: 10px !important; }
+.streamlit-expanderHeader p { color: #000000 !important; font-weight: 700 !important; }
+[data-testid="stExpander"] * { color: #000000 !important; }
 </style>
 """, unsafe_allow_html=True)
 
