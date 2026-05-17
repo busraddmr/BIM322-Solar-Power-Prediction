@@ -45,7 +45,7 @@ div.stButton > button:hover {
     text-align: center;
     margin: 8px 0;
 }
-.metric-val { font-size: 2rem; font-weight: 900; color: #f59e0b; }
+.metric-val { font-size: 1.6rem; font-weight: 900; color: #f59e0b; white-space: nowrap; }
 .metric-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
 .result-high {
@@ -109,7 +109,7 @@ model, scaler, selected_features = load_artifacts()
 
 # --- Baslik ---
 st.markdown('<h1 style="color:#e2e8f0; font-weight:900;">☀️ Solar Güç Üretim Tahmini</h1>', unsafe_allow_html=True)
-st.markdown("**BIM 322 – Makine Öğrenmesi** &nbsp;|&nbsp; Büşra Demir & Nazenin Tatar", unsafe_allow_html=True)
+st.markdown('<p style="color:#ffffff; font-size:1.1rem;"><b>BIM 322 – Makine Öğrenmesi</b> &nbsp;|&nbsp; Büşra Demir & Nazenin Tatar</p>', unsafe_allow_html=True)
 st.divider()
 
 # --- Model bilgi kartlari ---
