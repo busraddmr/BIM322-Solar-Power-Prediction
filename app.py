@@ -79,13 +79,18 @@ div.stButton > button:hover {
 }
 
 input[type=number] {
-    background: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
+    background: #111827 !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
     border-radius: 10px !important;
-    color: white !important;
+    color: #ffffff !important;
     font-weight: 600 !important;
 }
-label { color: rgba(255,255,255,0.7) !important; font-weight: 600 !important; }
+[data-testid="stNumberInput"] input {
+    background: #111827 !important;
+    color: #ffffff !important;
+}
+label { color: rgba(255,255,255,0.85) !important; font-weight: 600 !important; }
+[data-testid="stWidgetLabel"] p { color: rgba(255,255,255,0.85) !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -103,7 +108,7 @@ def load_artifacts():
 model, scaler, selected_features = load_artifacts()
 
 # --- Baslik ---
-st.markdown("# ☀️ Solar Güç Üretim Tahmini")
+st.markdown('<h1 style="color:#e2e8f0; font-weight:900;">☀️ Solar Güç Üretim Tahmini</h1>', unsafe_allow_html=True)
 st.markdown("**BIM 322 – Makine Öğrenmesi** &nbsp;|&nbsp; Büşra Demir & Nazenin Tatar", unsafe_allow_html=True)
 st.divider()
 
@@ -183,4 +188,4 @@ if predict_clicked:
         st.dataframe(df_show, use_container_width=True, hide_index=True)
 
 st.divider()
-st.caption("Model: XGBoost  |  Accuracy: 97.42%  |  Eşik: 544.71 W  |  Veri: Kaggle Solar Dataset")
+st.markdown('<p style="color:white; font-size: 0.8rem;">Model: XGBoost | Accuracy: 97.42% | Eşik: 544.71 W | Veri: Kaggle Solar Dataset</p>', unsafe_allow_html=True)
