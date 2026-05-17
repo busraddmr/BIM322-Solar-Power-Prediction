@@ -103,11 +103,11 @@ label { color: rgba(255,255,255,0.85) !important; font-weight: 600 !important; }
 
 @st.cache_resource
 def load_artifacts():
-    with open("models/xgboost_model.pkl", "rb") as f:
+    with open("modeller/xgboost_model.pkl", "rb") as f:
         model = pickle.load(f)
-    with open("models/scaler.pkl", "rb") as f:
+    with open("modeller/scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
-    with open("models/selected_features.pkl", "rb") as f:
+    with open("modeller/selected_features.pkl", "rb") as f:
         features = pickle.load(f)
     return model, scaler, features
 

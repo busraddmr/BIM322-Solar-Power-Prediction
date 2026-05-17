@@ -1,26 +1,25 @@
-# BIM 322 - Solar Güç Üretim Tahmini
+# BIM 322 - Solar Guc Uretim Tahmini
 
-
-**Öğrenciler:** Büşra Demir & Nazenin Tatar
+**Ogrenciler:** Busra Demir & Nazenin Tatar
 
 ---
 
 ## Proje Konusu
 
-Hindistan'daki iki güneş enerjisi santralinden alınan sensör verileri kullanılarak anlık güç üretiminin yüksek mi düşük mü olduğu tahmin edilmiştir. Hedef değişken AC_POWER, train setinin ortalamasına göre binary sınıfa dönüştürülmüştür.
+Hindistan'daki iki gunes enerjisi santralinden alinan sensor verileri kullanilarak anlik guc uretiminin yuksek mi dusuk mu oldugu tahmin edilmistir. Hedef degisken AC_POWER, train setinin ortalamasina gore binary sinifa donusturulmustur.
 
 ---
 
-## Kullanılan Final Model
+## Kullanilan Final Model
 
 XGBoost Classifier
 
 ---
 
-## Test Sonuçları
+## Test Sonuclari
 
-| Metrik | Değer |
-|---|---|
+| Metrik | Deger |
+|---|---:|
 | Accuracy | 0.9742 |
 | Precision | 0.9623 |
 | Recall | 0.9851 |
@@ -28,9 +27,9 @@ XGBoost Classifier
 
 ---
 
-## Özellikler
+## Ozellikler
 
-4 farklı özellik seçim yöntemiyle (Korelasyon, SelectKBest, RFE, Mutual Information) seçilen 3 özellik:
+4 farkli ozellik secim yontemiyle (Korelasyon, SelectKBest, RFE, Mutual Information) secilen 3 ozellik:
 
 - IRRADIATION
 - MODULE_TEMPERATURE
@@ -38,7 +37,7 @@ XGBoost Classifier
 
 ---
 
-## Çalıştırma
+## Calistirma
 
 ```bash
 pip install -r requirements.txt
@@ -47,28 +46,43 @@ streamlit run app.py
 
 Uygulama: http://localhost:8501
 
-### Canlı Uygulama Linki
-Streamlit ile geliştirilen canlı uygulamaya aşağıdaki bağlantıdan erişilebilir:
-(https://bim322-solar-power-prediction.streamlit.app/)
+---
+
+## Veri Seti
+
+Projede kullanilan veri seti Kaggle uzerinden alinmistir:
+
+https://www.kaggle.com/datasets/anikannal/solar-power-generation-data
 
 ---
 
-## Dosya Yapısı
+### Canli Uygulama Linki
 
-```
+Streamlit ile gelistirilen canli uygulamaya asagidaki baglantidan erisilebilir:
+
+https://bim322-solar-power-prediction.streamlit.app/
+
+---
+
+## Dosya Yapisi
+
+```text
 BIM322_SolarGucTahmini/
-├── data/
-│   ├── Plant_1_Generation_Data.csv
-│   ├── Plant_1_Weather_Sensor_Data.csv
-│   ├── Plant_2_Generation_Data.csv
-│   └── Plant_2_Weather_Sensor_Data.csv
-├── models/
-│   ├── xgboost_model.pkl
-│   ├── scaler.pkl
-│   └── selected_features.pkl
-├── solar_guc_tahmini.ipynb
-├── BusraDemir_NazeninTatar_BIM322_Sunum.pptx
-├── app.py
-├── requirements.txt
-└── README.md
+|-- data/
+|   |-- Plant_1_Generation_Data.csv
+|   |-- Plant_1_Weather_Sensor_Data.csv
+|   |-- Plant_2_Generation_Data.csv
+|   `-- Plant_2_Weather_Sensor_Data.csv
+|-- modeller/
+|   |-- xgboost_model.pkl
+|   |-- scaler.pkl
+|   `-- selected_features.pkl
+|-- notebooks/
+|   `-- solar_guc_tahmini.ipynb
+|-- sunum/
+|   `-- BusraDemir_NazeninTatar_BIM322_Sunum.pptx
+|-- .gitignore
+|-- README.md
+|-- app.py
+`-- requirements.txt
 ```
