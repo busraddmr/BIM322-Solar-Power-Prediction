@@ -49,7 +49,7 @@ Uygulama: http://localhost:8501
 
 ### Canlı Uygulama Linki
 Streamlit ile geliştirilen canlı uygulamaya aşağıdaki bağlantıdan erişilebilir:
-https://nndjvtpfjjfbp.streamlit.app/
+(https://bim322-solar-power-prediction.streamlit.app/)
 
 ---
 
