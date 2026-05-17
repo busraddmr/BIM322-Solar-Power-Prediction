@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 ﻿import pickle
 import numpy as np
 import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="Solar GÃ¼Ã§ Tahmini",
+    page_title="Solar Güç Tahmini",
     page_icon="âš¡",
     layout="centered",
 )
