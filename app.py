@@ -91,6 +91,10 @@ input[type=number] {
 }
 label { color: rgba(255,255,255,0.85) !important; font-weight: 600 !important; }
 [data-testid="stWidgetLabel"] p { color: rgba(255,255,255,0.85) !important; }
+
+/* Expander yazi rengi */
+.streamlit-expanderHeader { color: white !important; }
+.streamlit-expanderHeader p { color: white !important; font-weight: 600; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -174,9 +178,9 @@ if predict_clicked:
     m1.metric("Yüksek Üretim Olasılığı", f"{p_high*100:.1f}%")
     m2.metric("Düşük Üretim Olasılığı",  f"{p_low*100:.1f}%")
 
-    st.markdown("**Yüksek Üretim Güveni**")
+    st.markdown('<p style="color:white; font-weight:600; margin-bottom: 2px;">Yüksek Üretim Güveni</p>', unsafe_allow_html=True)
     st.progress(float(p_high))
-    st.markdown("**Düşük Üretim Güveni**")
+    st.markdown('<p style="color:white; font-weight:600; margin-bottom: 2px; margin-top: 10px;">Düşük Üretim Güveni</p>', unsafe_allow_html=True)
     st.progress(float(p_low))
 
     with st.expander("📋 Giriş Değerleri Özeti"):
